@@ -39,6 +39,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<User> getUser(int id) {
         Optional<User> user = userRepository.findById(id);
-        return user.isPresent()?ResponseEntity.status(200).body(user.get()):ResponseEntity.status(HttpStatus.NOT_FOUND).body(user.get());
+        return user.isPresent()?ResponseEntity.status(200).body(user.get()):ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 }
