@@ -5,23 +5,23 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "owta_bill")
-public class Bill {
+@Table(name = "owta_book")
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    Integer receiptNo;
+    @OneToMany
+    User user;
 
-    Double amount;
-
-    String product;
+    @OneToOne
+    Bill bill;
 
     LocalDateTime date;
 }
