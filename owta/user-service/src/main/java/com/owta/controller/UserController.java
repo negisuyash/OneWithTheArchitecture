@@ -35,9 +35,9 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @PutMapping(path = "/updateUser")
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        return userService.updateUser(user);
+    @PutMapping(path = "/updateUser/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable("id")Integer id,@RequestBody User user){
+        return userService.updateUser(id,user);
     }
 
     @DeleteMapping(path = "/removeUser/{id}")

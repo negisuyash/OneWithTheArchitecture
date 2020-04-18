@@ -26,7 +26,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity<User> updateUser(User user) {
+    public ResponseEntity<User> updateUser(Integer id,User user) {
+        Optional<User> originalUser = userRepository.findById(id);
+        if(!originalUser.isPresent())
+            return ResponseEntity.status(404).body(null);
+        user.setId(originalUser.get().getId());
         return ResponseEntity.status(201).body(userRepository.save(user));
     }
 
