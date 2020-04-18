@@ -17,10 +17,12 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @OneToMany
+    @ManyToOne(cascade={CascadeType.PERSIST})
+    @JoinColumn(name = "user_id")
     User user;
 
-    @OneToOne
+    @OneToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name = "bill_id")
     Bill bill;
 
     LocalDateTime date;
