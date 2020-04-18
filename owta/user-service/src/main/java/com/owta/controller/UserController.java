@@ -3,9 +3,10 @@ package com.owta.controller;
 import com.owta.model.User;
 import com.owta.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.time.LocalDate;
 
 @RestController
@@ -22,5 +23,25 @@ public class UserController {
         user.setRole("Admin");
         user.setPassword("1234");
         return userService.saveUser(user);
+    }
+
+    @GetMapping(path = "/getUser/{id}")
+    public ResponseEntity<User> getUser(@PathVariable("id") int id){
+        return null;
+    }
+
+    @PostMapping(path = "/addUser")
+    public ResponseEntity<User> addUser(@RequestBody User user){
+        return null;
+    }
+
+    @PutMapping(path = "/updateUser")
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        return null;
+    }
+
+    @DeleteMapping(path = "/removeUser/{id}")
+    public ResponseEntity<User> removeUser(@PathVariable("id") int id){
+        return null;
     }
 }
