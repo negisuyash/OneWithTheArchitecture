@@ -27,21 +27,21 @@ public class UserController {
 
     @GetMapping(path = "/getUser/{id}")
     public ResponseEntity<User> getUser(@PathVariable("id") int id){
-        return null;
+        return userService.getUser(id);
     }
 
     @PostMapping(path = "/addUser")
     public ResponseEntity<User> addUser(@RequestBody User user){
-        return null;
+        return userService.addUser(user);
     }
 
     @PutMapping(path = "/updateUser")
     public ResponseEntity<User> updateUser(@RequestBody User user){
-        return null;
+        return userService.updateUser(user);
     }
 
     @DeleteMapping(path = "/removeUser/{id}")
-    public ResponseEntity<User> removeUser(@PathVariable("id") int id){
-        return null;
+    public ResponseEntity<String> removeUser(@PathVariable("id") int id){
+        return userService.deleteUser(id);
     }
 }
