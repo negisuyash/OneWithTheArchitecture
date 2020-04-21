@@ -1,5 +1,6 @@
 package com.owta.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,4 +25,8 @@ public class Bill {
     String product;
 
     LocalDateTime date;
+
+    @OneToOne(fetch = FetchType.EAGER,mappedBy = "bill")
+    @JsonBackReference
+    Book book;
 }
