@@ -1,5 +1,6 @@
 package com.owta.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,10 +18,12 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @OneToMany
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
     User user;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     Bill bill;
 
     LocalDateTime date;
